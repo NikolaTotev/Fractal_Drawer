@@ -23,22 +23,26 @@ namespace Beauty
         //Circle Variables
         private float posX;
         private float posY;
-        private float radius = 555;
+        private float radius = 800;
 
         // Squares 
-        private float sO = 600;
+        private float sO = 424;
         private int colGen;
         private int pictureNumber;
         private int sessionNumber;
         private int itterations = 1;
         private int prev = 0;
         private Random newRandom = new Random();
-        private Color col1 = Color.AliceBlue;
+        private Color col1 = Color.MediumAquamarine;
         private Color col2 = Color.CornflowerBlue;
         private Color col3 = Color.DodgerBlue;
         private Color col4 = Color.LightBlue;
         private Color col5 = Color.DarkCyan;
         private Color col6 = Color.RoyalBlue;
+        private Color col7 = Color.Orange;
+        private Color col8 = Color.LightCoral;
+        private Color col9 = Color.DarkOrange;
+        private Color col10 = Color.OrangeRed;
         private Color[] colors;
         private Graphics g = null;
         private Bitmap bmp;
@@ -59,7 +63,7 @@ namespace Beauty
 
             // col1 = Color.FromArgb(newRandom.Next(0, 255), newRandom.Next(0, 255), newRandom.Next(0, 255));
             // col2 = Color.FromArgb(newRandom.Next(0, 255), newRandom.Next(0, 255), newRandom.Next(0, 255));
-            colors = new Color[] { col1, col2, col3, col4, col5, col6 };
+            colors = new Color[] { col1, col2, col3, col4, col5, col6, col7, col8, col9, col10 };
             pictureNumber = Properties.Settings.Default.pictureNumber;
             sessionNumber = Properties.Settings.Default.sessionNumber;
 
@@ -133,7 +137,7 @@ namespace Beauty
             //col1 = Color.FromArgb(newRandom.Next(0, 255), newRandom.Next(0, 255), newRandom.Next(0, 255));
             // col2 = Color.FromArgb(newRandom.Next(0, 255), newRandom.Next(0, 255), newRandom.Next(0, 255));
 
-            colors = new Color[] { col1, col2 };
+            //colors = new Color[] { col1, col2 };
 
 
             panel1.Refresh();
@@ -155,20 +159,9 @@ namespace Beauty
         {
             colGen = newRandom.Next(0, 1000);
 
-            if (colGen % 2 == 0)
-            {
-                myPen.Color = colors[0];
-                sBrush.Color = colors[0];
-            }
-
-
-
-            if (colGen % 2 != 0)
-            {
-                myPen.Color = colors[1];
-                sBrush.Color = colors[1];
-            }
-
+       
+            myPen.Color = colors[newRandom.Next(0, colors.Length)];
+            sBrush.Color = colors[newRandom.Next(0, colors.Length)];
 
 
             g.DrawEllipse(myPen, pX - d / 2, pY - d / 2, d, d);
@@ -202,9 +195,19 @@ namespace Beauty
 
         private void Squares(float pX1, float pY2, float s)
         {
-           myPen.Color = colors[newRandom.Next(0, colors.Length)];
-           sBrush.Color = colors[newRandom.Next(0, colors.Length)];
-           
+            if (itterations != 1)
+            {
+                myPen.Color = colors[newRandom.Next(0, colors.Length)];
+                sBrush.Color = colors[newRandom.Next(0, colors.Length)];
+            }
+            else
+            {
+                myPen.Color = Color.Azure;
+                sBrush.Color = Color.Azure;
+            }
+
+            
+
 
             //g.DrawRectangle(myPen, pX1 - s / 2, pY2 - s / 2, s, s);
             g.FillEllipse(sBrush, pX1 - s / 2, pY2 - s / 2, s, s);
@@ -213,7 +216,7 @@ namespace Beauty
             if (s > 1)
             {
 
-                Squares((float)(pX1 + s * 0.5f * Math.Cos(59)), (float)(pY2 * Math.Sin(30)), s * 0.5f);
+                Squares((float)(pX1 + s * 0.5f * Math.Cos(60)), (float)(pY2 * Math.Sin(30)), s * 0.5f);
                 Squares((float)(pX1 - s * 0.5f * Math.Sin(30)), (float)(pY2 * Math.Sin(30)), s * 0.5f);
                 Squares(pX1, pY2 + s * 0.5f, s * 0.5f);
                 //Squares(pX1, pY2 - s * 0.5f, s * 0.5f);
