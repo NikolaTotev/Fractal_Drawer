@@ -26,7 +26,7 @@ namespace Beauty
         private float radius = 555;
 
         // Squares 
-        private float sO = 100;
+        private float sO = 600;
         private int colGen;
         private int pictureNumber;
         private int sessionNumber;
@@ -35,6 +35,10 @@ namespace Beauty
         private Random newRandom = new Random();
         private Color col1 = Color.AliceBlue;
         private Color col2 = Color.CornflowerBlue;
+        private Color col3 = Color.DodgerBlue;
+        private Color col4 = Color.LightBlue;
+        private Color col5 = Color.DarkCyan;
+        private Color col6 = Color.RoyalBlue;
         private Color[] colors;
         private Graphics g = null;
         private Bitmap bmp;
@@ -55,7 +59,7 @@ namespace Beauty
 
             // col1 = Color.FromArgb(newRandom.Next(0, 255), newRandom.Next(0, 255), newRandom.Next(0, 255));
             // col2 = Color.FromArgb(newRandom.Next(0, 255), newRandom.Next(0, 255), newRandom.Next(0, 255));
-            colors = new Color[] { col1, col2 };
+            colors = new Color[] { col1, col2, col3, col4, col5, col6 };
             pictureNumber = Properties.Settings.Default.pictureNumber;
             sessionNumber = Properties.Settings.Default.sessionNumber;
 
@@ -198,21 +202,9 @@ namespace Beauty
 
         private void Squares(float pX1, float pY2, float s)
         {
-            colGen = newRandom.Next(0, 1000);
-
-            if (colGen % 2 == 0)
-            {
-                myPen.Color = colors[0];
-                sBrush.Color = colors[0];
-            }
-
-
-            if (colGen % 2 != 0)
-            {
-                myPen.Color = colors[1];
-                sBrush.Color = colors[1];
-            }
-
+           myPen.Color = colors[newRandom.Next(0, colors.Length)];
+           sBrush.Color = colors[newRandom.Next(0, colors.Length)];
+           
 
             //g.DrawRectangle(myPen, pX1 - s / 2, pY2 - s / 2, s, s);
             g.FillEllipse(sBrush, pX1 - s / 2, pY2 - s / 2, s, s);
@@ -245,7 +237,7 @@ namespace Beauty
             //col1 = Color.FromArgb(newRandom.Next(0, 255), newRandom.Next(0, 255), newRandom.Next(0, 255));
             //col2 = Color.FromArgb(newRandom.Next(0, 255), newRandom.Next(0, 255), newRandom.Next(0, 255));
 
-            colors = new Color[] { col1, col2 };
+            //colors = new Color[] { col1, col2 };
 
             panel1.Refresh();
             g = panel1.CreateGraphics();

@@ -18,3 +18,13 @@ D:\Documents\Personal\Software Engineering\Software Engineering\Beauty\Beauty\ob
 D:\Documents\Personal\Software Engineering\Software Engineering\Beauty\Beauty\obj\Debug\Beauty.csproj.CoreCompileInputs.cache
 D:\Documents\Personal\Software Engineering\Software Engineering\Beauty\Beauty\obj\Debug\Beauty.exe
 D:\Documents\Personal\Software Engineering\Software Engineering\Beauty\Beauty\obj\Debug\Beauty.pdb
+D:\Documents\Software_Engineering\Old C# Projects\Beauty\Fractal_Drawer\Beauty\Beauty\bin\Debug\Beauty.exe.config
+D:\Documents\Software_Engineering\Old C# Projects\Beauty\Fractal_Drawer\Beauty\Beauty\bin\Debug\Beauty.exe
+D:\Documents\Software_Engineering\Old C# Projects\Beauty\Fractal_Drawer\Beauty\Beauty\bin\Debug\Beauty.pdb
+D:\Documents\Software_Engineering\Old C# Projects\Beauty\Fractal_Drawer\Beauty\Beauty\obj\Debug\Beauty.csprojAssemblyReference.cache
+D:\Documents\Software_Engineering\Old C# Projects\Beauty\Fractal_Drawer\Beauty\Beauty\obj\Debug\Beauty.Form1.resources
+D:\Documents\Software_Engineering\Old C# Projects\Beauty\Fractal_Drawer\Beauty\Beauty\obj\Debug\Beauty.Properties.Resources.resources
+D:\Documents\Software_Engineering\Old C# Projects\Beauty\Fractal_Drawer\Beauty\Beauty\obj\Debug\Beauty.csproj.GenerateResource.cache
+D:\Documents\Software_Engineering\Old C# Projects\Beauty\Fractal_Drawer\Beauty\Beauty\obj\Debug\Beauty.csproj.CoreCompileInputs.cache
+D:\Documents\Software_Engineering\Old C# Projects\Beauty\Fractal_Drawer\Beauty\Beauty\obj\Debug\Beauty.exe
+D:\Documents\Software_Engineering\Old C# Projects\Beauty\Fractal_Drawer\Beauty\Beauty\obj\Debug\Beauty.pdb
