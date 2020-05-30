@@ -23,9 +23,11 @@ namespace Beauty
         //Circle Variables
         private float posX;
         private float posY;
-        private float radius = 800;
+        //Size
+        private float radius = 200;
 
         // Squares 
+        //Size
         private float sO = 424;
         private int colGen;
         private int pictureNumber;
@@ -52,8 +54,8 @@ namespace Beauty
 
         public Form1()
         {
-            InitializeComponent();
-
+            InitializeComponent(); 
+                
             g = panel1.CreateGraphics();
 
             posX = panel1.Width;
@@ -66,9 +68,6 @@ namespace Beauty
             colors = new Color[] { col1, col2, col3, col4, col5, col6, col7, col8, col9, col10 };
             pictureNumber = Properties.Settings.Default.pictureNumber;
             sessionNumber = Properties.Settings.Default.sessionNumber;
-
-
-
         }
 
         private void drawPhl_Click(object sender, EventArgs e)
@@ -77,7 +76,7 @@ namespace Beauty
 
             //col1 = Color.FromArgb(newRandom.Next(0, 255), newRandom.Next(0, 255), newRandom.Next(0, 255));
             // col2 = Color.FromArgb(newRandom.Next(0, 255), newRandom.Next(0, 255), newRandom.Next(0, 255));
-            colors = new Color[] { col1, col2 };
+            //colors = new Color[] { col1, col2 };
 
             panel1.Refresh();
             g = panel1.CreateGraphics();
@@ -88,19 +87,10 @@ namespace Beauty
             n = 0;
             size = 3;
 
-            for (int i = 0; i < 15000; i++)
+            for (int i = 0; i < 25000; i++)
             {
-                colGen = newRandom.Next(0, 1000);
-
-                if (colGen % 2 == 0)
-                {
-                    sBrush.Color = colors[0];
-                }
-
-                if (colGen % 2 != 0)
-                {
-                    sBrush.Color = colors[1];
-                }
+                myPen.Color = colors[newRandom.Next(0, colors.Length)];
+                sBrush.Color = colors[newRandom.Next(0, colors.Length)];
 
                 // Color c1 = Color.FromArgb(newRandom.Next(0, 255), newRandom.Next(0, 255), newRandom.Next(0, 255));
                 //sBrush.Color = c1;
@@ -165,21 +155,16 @@ namespace Beauty
 
 
             g.DrawEllipse(myPen, pX - d / 2, pY - d / 2, d, d);
-           //g.FillEllipse(sBrush, pX - d / 2, pY - d / 2, d, d);
             g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
 
             if (d > 1)
             {
                 DrawCircle(pX + d * 0.5f, pY, d * 0.5f);
                 DrawCircle(pX - d * 0.5f, pY, d * 0.5f);
-                // DrawCircle(pX, pY + d * 0.5f, d * 0.5f);
-                // DrawCircle(pX , pY - d * 0.5f, d * 0.5f);
-
             }
             itterations++;
             if (itterations == 2048)
             {
-
                 g = Graphics.FromImage(bmp);
                 Rectangle rect = panel1.RectangleToScreen(panel1.ClientRectangle);
                 g.CopyFromScreen(rect.Location, Point.Empty, panel1.Size);
@@ -189,12 +174,11 @@ namespace Beauty
                 Properties.Settings.Default.pictureNumber = this.pictureNumber;
                 Properties.Settings.Default.Save();
             }
-
-
         }
 
         private void Squares(float pX1, float pY2, float s)
         {
+            //Sets color of fractal.
             if (itterations != 1)
             {
                 myPen.Color = colors[newRandom.Next(0, colors.Length)];
@@ -206,16 +190,12 @@ namespace Beauty
                 sBrush.Color = Color.Azure;
             }
 
-            
 
-
-            //g.DrawRectangle(myPen, pX1 - s / 2, pY2 - s / 2, s, s);
             g.FillEllipse(sBrush, pX1 - s / 2, pY2 - s / 2, s, s);
             g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
 
             if (s > 1)
             {
-
                 Squares((float)(pX1 + s * 0.5f * Math.Cos(60)), (float)(pY2 * Math.Sin(30)), s * 0.5f);
                 Squares((float)(pX1 - s * 0.5f * Math.Sin(30)), (float)(pY2 * Math.Sin(30)), s * 0.5f);
                 Squares(pX1, pY2 + s * 0.5f, s * 0.5f);
